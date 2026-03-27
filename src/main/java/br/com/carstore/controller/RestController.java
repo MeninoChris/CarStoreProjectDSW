@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-public class IndexController {
+@org.springframework.web.bind.annotation.RestController
+public class RestController {
 
     private final CarService carService;
 
-    public IndexController(CarService service) {
+    public RestController(CarService service) {
         this.carService = service;
     }
 

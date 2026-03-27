@@ -2,15 +2,14 @@ package br.com.carstore.dto;
 
 import java.util.List;
 
-public class CarResponsyBody {
+public class CarResponseBody {
 
-    private CarDTO car;
-    public CarResponseBody (List<CarDTO> allcars ){
-        this.cars = cars;
+    private List<CarDTO> cars;
+    public CarResponseBody (List<CarDTO> allCars ){
+        this.cars = allCars;
     }
 
-
-
+    private CarDTO car;
 
     public CarDTO getCar() {
         return car;

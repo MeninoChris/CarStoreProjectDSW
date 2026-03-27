@@ -1,10 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="[http://www.thymeleaf.org](http://www.thymeleaf.org)">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cadastro de Carro</title>
+    <style>
+        .error { color: red; font-size: 0.8em; }
+    </style>
 </head>
 <body>
+<h1>Cadastrar Novo Carro</h1>
 
+<form action="#" th:action="@{/carros}" th:object="${carDTO}" method="post">
+    <div>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" th:field="*{name}">
+        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    </div>
+    <div>
+        <label for="color">Cor:</label>
+        <input type="text" id="color" th:field="*{color}">
+        <span class="error" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+    </div>
+    <div>
+        <button type="submit">Salvar</button>
+    </div>
+</form>
 </body>
 </html>

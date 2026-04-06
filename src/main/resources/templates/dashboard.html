@@ -17,15 +17,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="car : ${cars}">
-                <td th:text="${car.name}"></td>
-                <td th:text="${car.color}"></td>
-                <td><!-- Ações futuras: editar/remover --></td>
-            </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.name}"></td>
+            <td th:text="${car.color}"></td>
             <td>
                 <a th:href="@{/cars/edit/{id}(id=${car.id})}">Editar</a> |
                 <a th:href="@{/cars/delete/{id}(id=${car.id})}">Remover</a>
             </td>
+        </tr>
         </tbody>
     </table>
 </body>

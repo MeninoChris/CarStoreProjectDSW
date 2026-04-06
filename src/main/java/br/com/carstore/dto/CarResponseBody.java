@@ -5,7 +5,8 @@ import java.util.List;
 public class CarResponseBody {
 
     private List<CarDTO> cars;
-    public CarResponseBody (List<CarDTO> allCars ){
+
+    public CarResponseBody(List<CarDTO> allCars) {
         this.cars = allCars;
     }
 

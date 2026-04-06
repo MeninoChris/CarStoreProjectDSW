@@ -1,14 +1,19 @@
 package br.com.carstore.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class CarDTO {
 
-    private String id;
-
+    @NotBlank(message = "O nome é obrigatório.")
+    @Size(min = 3, max = 50, message = "O nome deve ter entre 3 e 50 caracteres.")
     private String name;
 
+    @NotBlank(message = "A cor é obrigatória.")
     private String color;
 
     private String brand;
+    private String id;
 
     public String getName() {
         return name;

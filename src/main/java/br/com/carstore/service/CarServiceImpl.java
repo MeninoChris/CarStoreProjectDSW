@@ -8,38 +8,39 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class CarServiceImpl implements  CarService {
-
-    private List<CarDTO> cars;
-
-    public CarServiceImpl(){
-        cars = new ArrayList<CarDTO>();
-    }
+public class CarServiceImpl implements CarService {
+    private List<CarDTO> cars = new ArrayList<>();
 
     @Override
     public List<CarDTO> findAll() {
-        return this.cars;
+        return cars;
     }
 
     @Override
     public void save(CarDTO carDTO) {
-        if (carDTO.getId() == null) {
 
+        if (carDTO.getId() == null || carDTO.getId().isEmpty()) {
             carDTO.setId(UUID.randomUUID().toString());
-
         }
-        this.cars.add(carDTO);
-
+        cars.add(carDTO);
     }
 
     @Override
     public void deleteById(String id) {
-        this.cars.removeIf(car -> car.getId().equals(id));
+        cars.removeIf(car -> car.getId().equals(id));
     }
 
     @Override
     public void update(String id, CarDTO carDTO) {
-        this.cars.replaceAll(car -> car.getId().equals(id) ? carDTO : car);
 
+        cars.replaceAll(car -> car.getId().equals(id) ? carDTO : car);
+    }
+
+    @Override
+    public CarDTO findById(String id) {
+        return cars.stream()
+                .filter(car -> car.getId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 }
